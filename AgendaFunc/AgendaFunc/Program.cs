@@ -91,14 +91,14 @@ namespace AgendaMat
         {
             string busca = "";
             busca = ("ingrese el nombre del contacto a buscar: ");
-            busca = Console.ReadLine();
             return busca;
         }
+
         static string Modificardato()
         {
             string modifica = "";
-
-            Console.Write("ingrese el nombre del contacto a Modificar: ");
+            
+           Console.WriteLine("ingrese el nombre del contacto a Modificar: ");
             modifica = Console.ReadLine();
             return modifica;
         }
@@ -106,10 +106,11 @@ namespace AgendaMat
         {
             string borrar = "";
 
-            Console.Write("ingrese el nombre del contacto a Borrar: ");
+            Console.WriteLine("ingrese el nombre del contacto a Borrar: ");
             borrar = Console.ReadLine();
             return borrar;
         }
+
         
         static void GuardarContacto()
 
@@ -171,19 +172,16 @@ namespace AgendaMat
 
         static void BuscarModificarEliminar(char tipo)
 
-        {
-
-            string buscar = Buscardato();
-            string modifica = Modificardato();
-            string borrar = eliminardato();
+        { 
+            
             for (int f = 0; f < Contactos; f++)
 
             {
 
                 if (tipo == 'b')
                 {
-
-                    if (buscar == agenda[0, f])
+                   
+                    if ( Buscardato() == agenda[0, f])
 
                     {
 
@@ -197,9 +195,10 @@ namespace AgendaMat
 
                 {
 
+
                     
 
-                    if (modifica == agenda[0, f])
+                    if (Modificardato() == agenda[0, f])
 
                     {
 
@@ -226,11 +225,10 @@ namespace AgendaMat
                 else
 
                 {
-                   
-                    if (borrar == agenda[0, f])
+                    if (eliminardato() == agenda[0, f])
 
                     {
-
+                        
                         agenda[0, f] = " ";
 
                         agenda[1, f] = " ";

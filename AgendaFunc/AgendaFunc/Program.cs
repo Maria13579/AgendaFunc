@@ -17,50 +17,68 @@ namespace AgendaMat
     class Program
 
     {
-        static string[,] agenda; 
+        static string[,] agenda;
 
         static int Contactos = 0;
 
         static int Contador = 0;
 
-
-
         static void Main(string[] args)
 
         {
-            Contactos = PedirNoContactos();
-
             agenda = new string[4, Contactos];
+            Contactos = PedirNoContactos();
+            int opc = 0;
+            Console.WriteLine(" ________________AGENDA ________________");
+            Console.WriteLine(" ------------------Menú-----------------");
+            Console.WriteLine("1. Crear Contacto");
+            Console.WriteLine("2. Mostrar Contacto");
+            Console.WriteLine("3. Buscar Contacto");
+            Console.WriteLine("4. Modificar Contacto");
+            Console.WriteLine("5. Eliminar Contacto");
+            Console.WriteLine("6. Salir");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("\n");
+            Console.WriteLine("Ingrese el número de la opcion que desea utilizar");
+            opc = int.Parse(Console.ReadLine());
+            if (opc > 0)
+            {
+                if (opc < 5)
+                {
+                    if (opc == 1)
+                    {
+                        GuardarContacto();
+                    }
+                    if (opc == 2)
+                    {
+                        MostrarContactos();
+                    }
+                    if (opc == 3)
+                    {
+                        BuscarModificarEliminar('b');
+                    }
+                    if (opc == 4)
+                    {
+                        BuscarModificarEliminar('m');
+                        MostrarContactos();
+                    }
+                    if (opc == 5)
+                    {
+                        BuscarModificarEliminar('e');
+                        MostrarContactos();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Número de opcion incorrecto");
+
+            }
 
             Console.WriteLine("\n");
-
-            GuardarContacto();
-
-            GuardarContacto();
-
-            MostrarContactos();
-
-
-
-            BuscarModificarEliminar('b');
-
-            BuscarModificarEliminar('m');
-
-            MostrarContactos();
-
-            BuscarModificarEliminar('e');
-
-            MostrarContactos();
-
-
-
-
-
             Console.ReadKey();
 
         }
-
-
 
         static int PedirNoContactos()
 
@@ -72,8 +90,6 @@ namespace AgendaMat
 
         }
 
-
-
         static string PedirDatos(string linea)
 
         {
@@ -83,35 +99,29 @@ namespace AgendaMat
             dato = "Ingrese " + linea + " : ";
 
             return dato;
-           
+
 
         }
-     
-        static string Buscardato ()
+
+        static void Pedircontactos()
         {
-            string busca = "";
-            busca = ("ingrese el nombre del contacto a buscar: ");
-            return busca;
-        }
+            Console.Write(PedirDatos("Nombre"));
 
-        static string Modificardato()
-        {
-            string modifica = "";
-            
-           Console.WriteLine("ingrese el nombre del contacto a Modificar: ");
-            modifica = Console.ReadLine();
-            return modifica;
-        }
-        static string eliminardato()
-        {
-            string borrar = "";
+            agenda[0, Contador] = Console.ReadLine();
 
-            Console.WriteLine("ingrese el nombre del contacto a Borrar: ");
-            borrar = Console.ReadLine();
-            return borrar;
-        }
+            Console.Write(PedirDatos("Apellido"));
 
-        
+            agenda[1, Contador] = Console.ReadLine();
+
+            Console.Write(PedirDatos("Direccion"));
+
+            agenda[2, Contador] = Console.ReadLine();
+
+            Console.Write(PedirDatos("Telefono"));
+
+            agenda[3, Contador] = Console.ReadLine();
+        }
+       
         static void GuardarContacto()
 
         {
@@ -120,26 +130,10 @@ namespace AgendaMat
 
             {
 
-                Console.Write(PedirDatos("Nombre"));
-
-                agenda[0, Contador] = Console.ReadLine();
-
-                Console.Write(PedirDatos("Apellido"));
-
-                agenda[1, Contador] = Console.ReadLine();
-
-                Console.Write(PedirDatos("Direccion"));
-
-                agenda[2, Contador] = Console.ReadLine();
-
-                Console.Write(PedirDatos("Telefono"));
-
-                agenda[3, Contador] = Console.ReadLine();
-
+               Pedircontactos();
                 Contador++;
 
                 Console.WriteLine("\n");
-
             }
 
             else
@@ -151,8 +145,6 @@ namespace AgendaMat
             }
 
         }
-
-
 
         static void MostrarContactos()
 
@@ -172,8 +164,10 @@ namespace AgendaMat
 
         static void BuscarModificarEliminar(char tipo)
 
-        { 
-            
+        {
+            string buscar = "";
+            Console.WriteLine("Ingrese el nombre del contacto");
+            buscar = Console.ReadLine();
             for (int f = 0; f < Contactos; f++)
 
             {
@@ -181,7 +175,7 @@ namespace AgendaMat
                 if (tipo == 'b')
                 {
                    
-                    if ( Buscardato() == agenda[0, f])
+                    if ( buscar == agenda[0, f])
 
                     {
 
@@ -198,26 +192,11 @@ namespace AgendaMat
 
                     
 
-                    if (Modificardato() == agenda[0, f])
+                    if ( buscar == agenda[0, f])
 
                     {
 
-                        Console.Write(PedirDatos("Nombre"));
-
-                        agenda[0, f] = Console.ReadLine();
-
-                        Console.Write(PedirDatos("Apellido"));
-
-                        agenda[1, f] = Console.ReadLine();
-
-                        Console.Write(PedirDatos("Direccion"));
-
-                        agenda[2, f] = Console.ReadLine();
-
-                        Console.Write(PedirDatos("Telefono"));
-
-                        agenda[3, f] = Console.ReadLine();
-
+                        Pedircontactos();
                     }
 
                 }
@@ -225,7 +204,7 @@ namespace AgendaMat
                 else
 
                 {
-                    if (eliminardato() == agenda[0, f])
+                    if (buscar == agenda[0, f])
 
                     {
                         

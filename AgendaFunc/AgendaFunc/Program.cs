@@ -26,8 +26,8 @@ namespace AgendaMat
         static void Main(string[] args)
 
         {
-            agenda = new string[4, Contactos];
             Contactos = PedirNoContactos();
+            agenda = new string[4, Contactos];
             int opc = 0;
             while (opc < 6)
             {
@@ -167,9 +167,13 @@ namespace AgendaMat
         static void BuscarModificarEliminar(char tipo)
 
         {
+            string buscar2 = "";
             string buscar = "";
             Console.WriteLine("Ingrese el nombre del contacto");
             buscar = Console.ReadLine();
+            Console.WriteLine("Ingrese el apellido del contacto");
+            buscar2 = Console.ReadLine();
+
             for (int f = 0; f < Contactos; f++)
 
             {
@@ -177,7 +181,7 @@ namespace AgendaMat
                 if (tipo == 'b')
                 {
                    
-                    if ( buscar == agenda[0, f])
+                    if ( buscar == agenda[0, f] && buscar2 == agenda[1,f])
 
                     {
 
@@ -194,7 +198,7 @@ namespace AgendaMat
 
                     
 
-                    if ( buscar == agenda[0, f])
+                    if ( buscar == agenda[0, f] && buscar2 == agenda [1,f])
 
                     {
 
@@ -206,7 +210,7 @@ namespace AgendaMat
                 else
 
                 {
-                    if (buscar == agenda[0, f])
+                    if (buscar == agenda[0, f] && buscar2 == agenda [1,f])
 
                     {
                         

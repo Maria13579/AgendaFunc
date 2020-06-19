@@ -184,8 +184,8 @@ namespace AgendaMat
 
                 if (tipo == 'b')
                 {
-                   
-                    if ( buscar == agenda[0, f] && buscar2 == agenda[1,f])
+
+                    if (buscar == agenda[0, f] && buscar2 == agenda[1, f])
 
                     {
 
@@ -195,23 +195,24 @@ namespace AgendaMat
 
                 }
 
-                else if (tipo == 'm')
+                if (tipo == 'm')
 
                 {
 
 
-                    
 
-                    if ( buscar == agenda[0, f] && buscar2 == agenda [1,f])
+
+                    if (buscar == agenda[0, f] && buscar2 == agenda[1, f])
 
                     {
 
                         Pedircontactos();
+
                     }
 
                 }
 
-                else
+                if(tipo=='e')
 
                 {
                     if (buscar == agenda[0, f] && buscar2 == agenda [1,f])

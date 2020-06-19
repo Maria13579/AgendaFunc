@@ -42,7 +42,9 @@ namespace AgendaMat
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("\n");
                 Console.WriteLine("Ingrese el número de la opcion que desea utilizar");
+                
                 opc = int.Parse(Console.ReadLine());
+                Console.Clear();
                 if (opc > 0)
                 {
                     if (opc < 6)
@@ -76,7 +78,9 @@ namespace AgendaMat
                     Console.WriteLine("Número de opcion incorrecto");
 
                 }
+                
                 Console.WriteLine("\n");
+
             }
            if (opc==6)
             {

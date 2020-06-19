@@ -109,24 +109,8 @@ namespace AgendaMat
             return dato;
         }
 
-        static void Pedircontactos()
-        {
-            Console.Write(PedirDatos("Nombre"));
-
-            agenda[0, Contador] = Console.ReadLine();
-
-            Console.Write(PedirDatos("Apellido"));
-
-            agenda[1, Contador] = Console.ReadLine();
-
-            Console.Write(PedirDatos("Direccion"));
-
-            agenda[2, Contador] = Console.ReadLine();
-
-            Console.Write(PedirDatos("Telefono"));
-
-            agenda[3, Contador] = Console.ReadLine();
-        }
+      
+        
        
         static void GuardarContacto()
 
@@ -136,7 +120,21 @@ namespace AgendaMat
 
             {
 
-               Pedircontactos();
+                Console.Write(PedirDatos("Nombre"));
+
+                agenda[0, Contador] = Console.ReadLine();
+
+                Console.Write(PedirDatos("Apellido"));
+
+                agenda[1, Contador] = Console.ReadLine();
+
+                Console.Write(PedirDatos("Direccion"));
+
+                agenda[2, Contador] = Console.ReadLine();
+
+                Console.Write(PedirDatos("Telefono"));
+
+                agenda[3, Contador] = Console.ReadLine();
                 Contador++;
 
                 Console.WriteLine("\n");
@@ -206,7 +204,21 @@ namespace AgendaMat
 
                     {
 
-                        Pedircontactos();
+                        Console.Write(PedirDatos("Nombre"));
+
+                        agenda[0, f] = Console.ReadLine();
+
+                        Console.Write(PedirDatos("Apellido"));
+
+                        agenda[1, f] = Console.ReadLine();
+
+                        Console.Write(PedirDatos("Direccion"));
+
+                        agenda[2, f] = Console.ReadLine();
+
+                        Console.Write(PedirDatos("Telefono"));
+
+                        agenda[3, f] = Console.ReadLine();
 
                     }
 

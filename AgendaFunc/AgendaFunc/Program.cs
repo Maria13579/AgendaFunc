@@ -29,78 +29,80 @@ namespace AgendaMat
             agenda = new string[4, Contactos];
             Contactos = PedirNoContactos();
             int opc = 0;
-            Console.WriteLine(" ________________AGENDA ________________");
-            Console.WriteLine(" ------------------Menú-----------------");
-            Console.WriteLine("1. Crear Contacto");
-            Console.WriteLine("2. Mostrar Contacto");
-            Console.WriteLine("3. Buscar Contacto");
-            Console.WriteLine("4. Modificar Contacto");
-            Console.WriteLine("5. Eliminar Contacto");
-            Console.WriteLine("6. Salir");
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine("\n");
-            Console.WriteLine("Ingrese el número de la opcion que desea utilizar");
-            opc = int.Parse(Console.ReadLine());
-            if (opc > 0)
+            while (opc < 6)
             {
-                if (opc < 5)
+                Console.WriteLine(" ________________AGENDA ________________");
+                Console.WriteLine(" ------------------Menú-----------------");
+                Console.WriteLine("1. Crear Contacto");
+                Console.WriteLine("2. Mostrar Contacto");
+                Console.WriteLine("3. Buscar Contacto");
+                Console.WriteLine("4. Modificar Contacto");
+                Console.WriteLine("5. Eliminar Contacto");
+                Console.WriteLine("6. Salir");
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("\n");
+                Console.WriteLine("Ingrese el número de la opcion que desea utilizar");
+                opc = int.Parse(Console.ReadLine());
+                if (opc > 0)
                 {
-                    if (opc == 1)
+                    if (opc < 6)
                     {
-                        GuardarContacto();
-                    }
-                    if (opc == 2)
-                    {
-                        MostrarContactos();
-                    }
-                    if (opc == 3)
-                    {
-                        BuscarModificarEliminar('b');
-                    }
-                    if (opc == 4)
-                    {
-                        BuscarModificarEliminar('m');
-                        MostrarContactos();
-                    }
-                    if (opc == 5)
-                    {
-                        BuscarModificarEliminar('e');
-                        MostrarContactos();
+                        if (opc == 1)
+                        {
+                            GuardarContacto();
+                        }
+                        if (opc == 2)
+                        {
+                            MostrarContactos();
+                        }
+                        if (opc == 3)
+                        {
+                            BuscarModificarEliminar('b');
+                        }
+                        if (opc == 4)
+                        {
+                            BuscarModificarEliminar('m');
+                            MostrarContactos();
+                        }
+                        if (opc == 5)
+                        {
+                            BuscarModificarEliminar('e');
+                            MostrarContactos();
+                        }
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Número de opcion incorrecto");
+
+                }
+                Console.WriteLine("\n");
             }
-            else
+           if (opc==6)
             {
-                Console.WriteLine("Número de opcion incorrecto");
-
+                Console.WriteLine("Gracias por usar nuestra aplicacion");
             }
-
-            Console.WriteLine("\n");
             Console.ReadKey();
 
         }
+       
 
         static int PedirNoContactos()
 
         {
-
             Console.Write("Cuantos contactos desea agregar: ");
 
             return int.Parse(Console.ReadLine());
-
         }
 
         static string PedirDatos(string linea)
 
         {
-
             string dato = "";
 
             dato = "Ingrese " + linea + " : ";
 
             return dato;
-
-
         }
 
         static void Pedircontactos()
